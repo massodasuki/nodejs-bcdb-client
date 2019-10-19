@@ -5,7 +5,7 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
 
-/* POST insurans data */
+/* POST save insurans data in mongodb database */
 router.post('/insurans/', function(req, res, next) {
   var myobj = { age: req.body.age,
                 sex: req.body.sex,

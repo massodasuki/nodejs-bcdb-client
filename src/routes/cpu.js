@@ -22,13 +22,21 @@ router.get('/cpu/', function(req, res, next) {
     console.log(cpu);
 
     if (minCpu > cpu) {
-      res.send({'cpuStatus':true})
+      res.status(200).send({cpuStatus:true})
     }
-
-    res.send({'cpuStatus':false})
+    res.status(200).send({cpuStatus:false})
 
 });
 
+function getCPUStatus(minCpu, cpu){
 
+  if (minCpu > cpu) {
+    return true
+  }
+  return false
+}//fullUrl
 
-module.exports = router;
+module.exports = {
+  router,
+  getCPUStatus
+}
